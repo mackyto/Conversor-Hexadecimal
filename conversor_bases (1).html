@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Bases Numéricas</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="proc-z80">
+
+    <!-- Fondos por procesador -->
+    <div class="bg-layer active" id="bg-z80"></div>
+    <div class="bg-layer"        id="bg-8080"></div>
+    <div class="bg-layer"        id="bg-6502"></div>
+    <div class="bg-layer"        id="bg-pic16"></div>
+    <div class="color-overlay"></div>
+
+    <!-- Tarjeta principal -->
+    <div class="container">
+
+        <div class="header">
+            <div class="chip-badge" id="chipBadge">ZILOG Z80</div>
+            <h1>CONV<span id="accentChar">.</span>BASE</h1>
+            <div class="proc-name" id="procSubtitle">CPU · 8-BIT · 1976</div>
+        </div>
+
+        <!-- Hexadecimal -->
+        <div class="input-group">
+            <label><span class="dot"></span>Hexadecimal</label>
+            <div class="input-wrapper">
+                <span class="prefix">0x</span>
+                <input type="text" id="hexInput" class="with-prefix"
+                       placeholder="FF" autocomplete="off">
+            </div>
+        </div>
+
+        <!-- Decimal -->
+        <div class="input-group">
+            <label><span class="dot"></span>Decimal</label>
+            <input type="text" id="decInput"
+                   placeholder="255" autocomplete="off">
+        </div>
+
+        <!-- Binario -->
+        <div class="input-group">
+            <label><span class="dot"></span>Binario</label>
+            <div class="input-wrapper">
+                <span class="prefix">0b</span>
+                <input type="text" id="binInput" class="with-prefix"
+                       placeholder="11111111" autocomplete="off">
+            </div>
+        </div>
+
+        <!-- Selector de procesador -->
+        <div class="input-group">
+            <label><span class="dot"></span>Procesador</label>
+            <select id="processorSelect">
+                <option value="z80">Zilog Z80</option>
+                <option value="8080">Intel 8080</option>
+                <option value="6502">MOS 6502</option>
+                <option value="pic16">Microchip PIC16</option>
+            </select>
+        </div>
+
+        <!-- Nemotécnico -->
+        <div class="input-group">
+            <label><span class="dot"></span>Nemotécnico</label>
+            <input type="text" id="z80Input" class="mnem-input"
+                   placeholder="NOP, HALT, LD A,B…" autocomplete="off">
+        </div>
+
+        <!-- Panel de info del procesador -->
+        <div class="proc-info" id="procInfo">
+            <div class="proc-icon" id="procIcon">🟢</div>
+            <div class="proc-text">
+                <strong id="procInfoName">ZILOG Z80</strong>
+                <small id="procInfoDesc">Instrucciones de 8 bits · sin prefijos CB/ED/DD/FD · 256 opcodes base</small>
+            </div>
+        </div>
+
+    </div><!-- /.container -->
+
+    <!-- Lógica -->
+    <script src="script.js"></script>
+</body>
+</html>
